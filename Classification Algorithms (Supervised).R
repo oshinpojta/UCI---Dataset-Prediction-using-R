@@ -1,18 +1,26 @@
 # Name : Oshin Pojta
-# Roll.No. : EM017_REM017B60
 
-library(class)
-library(psycho)
-library(tidyverse)
-library(e1071)
-library(rpart)
-library(randomForest)
-library(Matrix)
-library(caTools)
-library(C50)
+# Remove '#' to install packages if error occurs during library calls 
+# Make sure that you have Rtools install corresponding to R version ( here used is R.4.0.3 version with RTools4.0 )
+# install.packages('class')
+# install.packages('psycho')
+# install.packages('tidyverse')
+# install.packages('e1071')
+# install.packages('rpart')
+# install.packages('randomForest')
+# install.packages('caTools')
+# install.packages('C50')
 
+library(e1071)    <-------------- # SVM and NaiveBayes Algorithms inside
+library(rpart)    <------------- # Decision Trees Library with its RPART-Recursive Algorithm used here
+library(randomForest) <------------ # RandomForest Algorithm
+library(caTools)  <-----------   # Provides various split and mathematical function 
+library(C50)      <------------- # Decision Trees Library with its C5.0-Algorithm used here
+library(class)    <------------- # 'class' file for miscellaneous use
 
-dataset=read.csv("SomervilleHappinessSurvey2015.csv", fileEncoding="UTF-16LE")
+#make sure to set working directory same as where these files are saved. (RStudio :- Menu > Session > Set working directory )
+
+dataset=read.csv("SomervilleHappinessSurvey2015.csv", fileEncoding="UTF-16LE") 
 table(dataset$D)
 str(dataset)
 dataset$D = as.factor(dataset$D)
